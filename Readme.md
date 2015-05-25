@@ -1,4 +1,4 @@
-vmMath is an attempt at creating a cross-platform (all the ones Go supports) high-performance vector and matrix math library in *pure* Go (see below).
+Goml (pronounced "Go-mull") is an attempt at creating a cross-platform (all the ones Go supports) high-performance machine learning library in *pure* Go (see below).
 
 'high-performance' having been said, there will be a fairly specific progression of development as far as optimizations are concerned:
 
