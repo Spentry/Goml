@@ -34,8 +34,10 @@ func NewVector(init []int) Matrix {
 }
 
 func (m Matrix) String() string {
-	row := strings.Repeat("%v ", m.w)
-	entirety := strings.Repeat(row[:len(row)-1]+"\n", m.h)
+	row := strings.Repeat("%v,", m.w)
+	row = fmt.Sprintf("\t[%v],\n", row[:len(row)-1])
+	rows := strings.Repeat(row, m.h)
+	entirety := fmt.Sprintf("[\n%v\n]", rows[:len(rows)-2])
 	held := make([]interface{}, m.h*m.w)
 	for y, row := range m.data {
 		for x, item := range row {
