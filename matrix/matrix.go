@@ -28,11 +28,6 @@ func New(init [][]int) Matrix {
 	}
 }
 
-// NewVector is syntax sugar for creating matrices with a height of one.
-func NewVector(init []int) Matrix {
-	return New([][]int{init})
-}
-
 func (m Matrix) String() string {
 	row := strings.Repeat("%v,", m.w)
 	row = fmt.Sprintf("\t[%v],\n", row[:len(row)-1])
@@ -92,15 +87,6 @@ func (m Matrix) SubtractMe(to Matrix) Matrix {
 // Subtract performs a copying subtraction of two matrices.
 func (m Matrix) Subtract(to Matrix) Matrix {
 	return m.Copy().SubtractMe(to)
-}
-
-// DotProduct does a copying dot product between a vector and a matrix.
-func (v Matrix) DotProduct(m Matrix) Matrix {
-	data := make([][]int, m.w)
-	for i := range data {
-		data[i] = v.data[0]
-	}
-	return New(data).Multiply(m)
 }
 
 // Multiply performs a multiplication between two matrices.
